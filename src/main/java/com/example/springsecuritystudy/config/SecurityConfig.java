@@ -68,7 +68,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //        httpBasic은 Http header에 직접 Authentication 필드에 주입해야 했기 때문에 불편하다.
 
         http.formLogin();
-        http.authorizeRequests().anyRequest().authenticated();
+//        http.authorizeRequests().anyRequest().authenticated();
+//        /hello에 접근하는것만 인증정보가 필요함.
+        http.authorizeRequests().antMatchers("/hello").authenticated();
     }
 
 //    BcryptPasswordEncoder는 자주 사용할꺼라
